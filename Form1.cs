@@ -17,118 +17,142 @@ namespace Calculator
             InitializeComponent();
         }
 
-        private void button0_Click(object sender, EventArgs e)
+        private void btn0_Click(object sender, EventArgs e)
         {
-            txtboxDisplay.Text += button0.Text;
-            lblTotal.Text += button0.Text;
+            txtDisplay.Text += btn0.Text;
+            lblTotal.Text += btn0.Text;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn1_Click(object sender, EventArgs e)
         {
-            txtboxDisplay.Text += button1.Text;
-            lblTotal.Text += button1.Text;
+            txtDisplay.Text += btn.Text;
+            lblTotal.Text += btn.Text;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn2_Click(object sender, EventArgs e)
         {
-            txtboxDisplay.Text += button2.Text;
-            lblTotal.Text += button2.Text;
+            txtDisplay.Text += btn2.Text;
+            lblTotal.Text += btn2.Text;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btn3_Click(object sender, EventArgs e)
         {
-            txtboxDisplay.Text += button3.Text;
-            lblTotal.Text += button3.Text;
+            txtDisplay.Text += btn3.Text;
+            lblTotal.Text += btn3.Text;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btn4_Click(object sender, EventArgs e)
         {
-            txtboxDisplay.Text += button4.Text;
-            lblTotal.Text += button4.Text;
+            txtDisplay.Text += btn4.Text;
+            lblTotal.Text += btn4.Text;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btn5_Click(object sender, EventArgs e)
         {
-            txtboxDisplay.Text += button5.Text;
-            lblTotal.Text += button5.Text;
+            txtDisplay.Text += btn5.Text;
+            lblTotal.Text += btn5.Text;
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btn6_Click(object sender, EventArgs e)
         {
-            txtboxDisplay.Text += button6.Text;
-            lblTotal.Text += button6.Text;
+            txtDisplay.Text += btn6.Text;
+            lblTotal.Text += btn6.Text;
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void btn7_Click(object sender, EventArgs e)
         {
-            txtboxDisplay.Text += button7.Text;
-            lblTotal.Text += button7.Text;
+            txtDisplay.Text += btn7.Text;
+            lblTotal.Text += btn7.Text;
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void btn8_Click(object sender, EventArgs e)
         {
-            txtboxDisplay.Text += button8.Text;
-            lblTotal.Text += button8.Text;
+            txtDisplay.Text += btn8.Text;
+            lblTotal.Text += btn8.Text;
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void btn9_Click(object sender, EventArgs e)
         {
-            txtboxDisplay.Text += button9.Text;
-            lblTotal.Text += button9.Text;
+            txtDisplay.Text += btn9.Text;
+            lblTotal.Text += btn9.Text;
         }
 
        
-        private void buttonClear_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            txtboxDisplay.Clear();
+            txtDisplay.Clear();
             lblTotal.Text = "";
         }
 
         
-        private void buttonDecimal_Click(object sender, EventArgs e)
+        private void btnDecimal_Click(object sender, EventArgs e)
         {
-            lblTotal.Text += buttonDecimal.Text;
-            txtboxDisplay.Text += buttonDecimal.Text;
+            lblTotal.Text += btnDecimal.Text;
+            txtDisplay.Text += btnDecimal.Text;
         }
 
    
 
-        private void buttonPlus_Click(object sender, EventArgs e)
+        private void btnPlus_Click(object sender, EventArgs e)
         {
-            lblTotal.Text += buttonPlus.Text;
-            txtboxDisplay.Clear();
+            txtDisplay.Clear();
+            lblTotal.Text += btnPlus.Text;
         }
 
-        private void buttonMinus_Click(object sender, EventArgs e)
+        private void btnMinus_Click(object sender, EventArgs e)
         {
-            lblTotal.Text += buttonMinus.Text;
-            txtboxDisplay.Clear();
+            txtDisplay.Clear();
+            lblTotal.Text += btnMinus.Text;
     
         }
 
-        private void buttonMultiply_Click(object sender, EventArgs e)
+        private void btnMultiply_Click(object sender, EventArgs e)
         {
-            lblTotal.Text += "*";
-            txtboxDisplay.Clear();
+            txtDisplay.Clear();
+            lblTotal.Text += btnMultiply.Text;
   
         }
 
-        private void buttonDivision_Click(object sender, EventArgs e)
+        private void btnDivision_Click(object sender, EventArgs e)
         {
-            lblTotal.Text += buttonDivision.Text;
-            txtboxDisplay.Clear();
+            txtDisplay.Clear();
+            lblTotal.Text += btnDivision.Text;
 
         }
 
-        private void buttonEquals_Click(object sender, EventArgs e)
+        private void btnEqual_Click(object sender, EventArgs e)
         {
 
             DataTable dt = new DataTable();
             var finalTotal = dt.Compute(lblTotal.Text, "");
-            txtboxDisplay.Text = finalTotal.ToString();
+            txtDisplay.Text = finalTotal.ToString();
 
            
         }
 
+        private void btnBackspace_Click(object sender, EventArgs e)
+        {
+            string total1 = lblTotal.Text;
+            string total2 = txtDisplay.Text;
+
+            if (total1.Length > 1)
+            {
+                total1 = total1.Substring(0, total1.Length - 1);
+                total2 = total2.Substring(0, total2.Length - 1);
+            }
+            else if (total1.Length ==1)
+            {
+                total1 = "";
+                total2 = total2.Substring(0, total2.Length - 1);
+            }
+            else
+            {
+                //do nothing
+            }
+
+
+            lblTotal.Text = total1;
+            txtDisplay.Text = total2;
+        }
     }
 }
