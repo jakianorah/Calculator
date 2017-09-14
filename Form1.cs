@@ -132,27 +132,32 @@ namespace Calculator
 
         private void btnBackspace_Click(object sender, EventArgs e)
         {
-            string total1 = lblTotal.Text;
-            string total2 = txtDisplay.Text;
+            try
+            {
+                string total1 = lblTotal.Text;
+                string total2 = txtDisplay.Text;
 
-            if (total1.Length > 1)
-            {
-                total1 = total1.Substring(0, total1.Length - 1);
-                total2 = total2.Substring(0, total2.Length - 1);
-            }
-            else if (total1.Length ==1)
-            {
-                total1 = "";
-                total2 = total2.Substring(0, total2.Length - 1);
-            }
-            else
-            {
-                //do nothing
-            }
+                if (total1.Length > 1)
+                {
+                    total1 = total1.Substring(0, total1.Length - 1);
+                    total2 = total2.Substring(0, total2.Length - 1);
+                }
+                else if (total1.Length == 1)
+                {
+                    total1 = "";
+                    total2 = total2.Substring(0, total2.Length - 1);
+                }
 
 
-            lblTotal.Text = total1;
-            txtDisplay.Text = total2;
+                lblTotal.Text = total1;
+                txtDisplay.Text = total2;
+
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("Backspace invalid option");
+            }
+
         }
     }
 }
